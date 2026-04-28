@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Scene0Matrix = ({ onComplete }) => {
   const canvasRef = useRef(null);
-  const [countdown, setCountdown] = useState(3);
-  const [showCountdown, setShowCountdown] = useState(true);
+  
+  const words = ["HAPPY", "BIRTH", "DAY", "TO", "GAM", "💖"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [showWord, setShowWord] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,7 +19,8 @@ const Scene0Matrix = ({ onComplete }) => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const chars = [..."HAPPYBIRTHDAYTOGAM💖✨💕"];
+    // ใช้เฉพาะตัวอักษร HAPPYBIRTHDAY สำหรับฉากหลัง
+    const chars = [..."HAPPYBIRTHDAY"];
     const fontSize = 20;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = [];
@@ -42,7 +45,8 @@ const Scene0Matrix = ({ onComplete }) => {
       }
     };
 
-    const interval = setInterval(draw, 33);
+    // ปรับเวลาให้ตกลงมาช้าลง (จากเดิม 33ms เปลี่ยนเป็น 80ms)
+    const interval = setInterval(draw, 80);
     return () => {
       clearInterval(interval);
       window.removeEventListener('resize', resizeCanvas);
@@ -50,31 +54,33 @@ const Scene0Matrix = ({ onComplete }) => {
   }, []);
 
   useEffect(() => {
-    if (countdown > 0) {
-      const timer = setTimeout(() => setCountdown(c => c - 1), 1000);
+    if (wordIndex < words.length) {
+      const timer = setTimeout(() => {
+        setWordIndex(i => i + 1);
+      }, 1200); // ความเร็วในการเปลี่ยนทีละคำ (1.2 วินาที)
       return () => clearTimeout(timer);
     } else {
-      setShowCountdown(false);
+      setShowWord(false);
       const endTimer = setTimeout(() => onComplete(), 1000);
       return () => clearTimeout(endTimer);
     }
-  }, [countdown, onComplete]);
+  }, [wordIndex, words.length, onComplete]);
 
   return (
     <div className="absolute inset-0 w-full h-full bg-black">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <AnimatePresence>
-          {showCountdown && countdown > 0 && (
+        <AnimatePresence mode="wait">
+          {showWord && wordIndex < words.length && (
             <motion.div
-              key={countdown}
+              key={wordIndex}
               initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 2, opacity: 1 }}
-              exit={{ scale: 3, opacity: 0 }}
+              animate={{ scale: 1.5, opacity: 1 }}
+              exit={{ scale: 2.5, opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-pink-500 text-9xl font-bold font-matrix drop-shadow-[0_0_20px_rgba(236,72,153,1)]"
+              className="text-pink-500 text-6xl md:text-9xl font-bold font-matrix drop-shadow-[0_0_20px_rgba(236,72,153,1)] text-center"
             >
-              {countdown}
+              {words[wordIndex]}
             </motion.div>
           )}
         </AnimatePresence>
