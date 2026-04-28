@@ -70,15 +70,15 @@ const Scene0Matrix = ({ onComplete }) => {
     <div className="absolute inset-0 w-full h-full bg-black">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {showWord && wordIndex < words.length && (
             <motion.div
               key={wordIndex}
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1.5, opacity: 1 }}
               exit={{ scale: 2.5, opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-pink-500 text-6xl md:text-9xl font-bold font-matrix drop-shadow-[0_0_20px_rgba(236,72,153,1)] text-center"
+              transition={{ duration: 0.4 }}
+              className="absolute text-pink-500 text-6xl md:text-9xl font-bold font-matrix drop-shadow-[0_0_20px_rgba(236,72,153,1)] text-center w-full"
             >
               {words[wordIndex]}
             </motion.div>
