@@ -14,7 +14,7 @@ const Scene2Book = ({ onComplete }) => {
     if (!isOpen) {
       setIsOpen(true);
     } else {
-      if (currentPage < 2) {
+      if (currentPage < 5) { // 6 หน้าคู่ (12 รูป) จะมี index สูงสุดที่ 5
         setCurrentPage(p => p + 1);
       } else {
         onComplete();
@@ -25,7 +25,10 @@ const Scene2Book = ({ onComplete }) => {
   const pages = [
     { left: "รูปที่ 1 (รอใส่รูป)", right: "รูปที่ 2 (รอใส่รูป)", color: "bg-pink-200" },
     { left: "รูปที่ 3 (รอใส่รูป)", right: "รูปที่ 4 (รอใส่รูป)", color: "bg-purple-200" },
-    { left: "รูปที่ 5 (รอใส่รูป)", right: "รูปที่ 6 (รอใส่รูป)", color: "bg-rose-200" }
+    { left: "รูปที่ 5 (รอใส่รูป)", right: "รูปที่ 6 (รอใส่รูป)", color: "bg-rose-200" },
+    { left: "รูปที่ 7 (รอใส่รูป)", right: "รูปที่ 8 (รอใส่รูป)", color: "bg-pink-200" },
+    { left: "รูปที่ 9 (รอใส่รูป)", right: "รูปที่ 10 (รอใส่รูป)", color: "bg-purple-200" },
+    { left: "รูปที่ 11 (รอใส่รูป)", right: "รูปที่ 12 (รอใส่รูป)", color: "bg-rose-200" }
   ];
 
   return (
