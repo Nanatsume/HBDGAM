@@ -24,7 +24,7 @@ const Scene0Matrix = ({ onComplete }) => {
     const fontSize = 20;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = [];
-    for (let x = 0; x < columns; x++) drops[x] = 1;
+    for (let x = 0; x < columns; x++) drops[x] = Math.floor(Math.random() * -100);
 
     const draw = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -74,11 +74,11 @@ const Scene0Matrix = ({ onComplete }) => {
           {showWord && wordIndex < words.length && (
             <motion.div
               key={wordIndex}
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1.5, opacity: 1 }}
-              exit={{ scale: 2.5, opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute text-pink-500 text-6xl md:text-9xl font-bold font-matrix drop-shadow-[0_0_20px_rgba(236,72,153,1)] text-center w-full"
+              initial={{ scale: 4, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ duration: 0.3, type: "spring", bounce: 0.5 }}
+              className="absolute text-pink-500 text-7xl md:text-9xl font-bold font-matrix text-center w-full"
             >
               {words[wordIndex]}
             </motion.div>
