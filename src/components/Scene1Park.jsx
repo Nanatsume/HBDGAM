@@ -21,28 +21,28 @@ const Scene1Park = ({ onComplete }) => {
     >
       {/* Overlay text */}
       <motion.div 
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute top-20 w-full text-center z-20 px-4"
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1, duration: 1, type: "spring" }}
+        className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 pointer-events-none"
       >
-        <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
-          Are you ready?
+        <h1 className="font-bold text-pink-400 text-center leading-[1.1] drop-shadow-xl text-[20vw]" style={{ textShadow: '0 0 15px white, 0 0 30px white' }}>
+          Are you <br/> ready?
         </h1>
-        <p className="text-white mt-4 opacity-90 drop-shadow-md text-lg">
+        <p className="text-white mt-8 opacity-90 text-xl font-bold px-6 py-2 bg-black/40 rounded-full backdrop-blur-sm shadow-xl">
           (แตะที่หน้าจอเพื่อไปต่อ)
         </p>
       </motion.div>
 
       {/* Characters walking in */}
-      <div className="absolute bottom-[20%] left-0 w-full flex flex-wrap justify-center px-2 gap-2">
+      <div className="absolute bottom-[10%] left-0 w-full flex flex-wrap justify-center px-2 gap-2">
         {characters.map((char, index) => (
           <motion.div
             key={char.id}
             initial={{ x: -1000, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 1.5 + index * 0.2, duration: 1.2, type: "spring", bounce: 0.2 }}
-            className="w-16 h-20 md:w-24 md:h-28 relative rounded-xl overflow-hidden bg-white/40 backdrop-blur-sm border border-white/50 shadow-xl"
+            className="w-16 h-20 md:w-24 md:h-28 relative overflow-hidden drop-shadow-2xl"
           >
             <div 
               className="absolute inset-0 sanrio-sprite bg-no-repeat w-full h-full"
