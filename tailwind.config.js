@@ -14,8 +14,9 @@ export default {
         }
       },
       fontFamily: {
-        'matrix': ['"Courier New"', 'monospace'],
-        'sans': ['Inter', 'sans-serif'],
+        'matrix': ['"Qilka"', '"Courier New"', 'monospace'],
+        'sans': ['"Qilka"', 'Inter', 'sans-serif'],
+        'qilka': ['"Qilka"', 'sans-serif'],
       }
     },
   },
