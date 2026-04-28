@@ -72,7 +72,7 @@ const Scene2Book = ({ onComplete }) => {
                   exit={{ rotateY: -90, opacity: 0 }}
                   transition={{ duration: 0.8 }}
                   className="absolute inset-0 bg-cover bg-center rounded-r-2xl shadow-[10px_0_20px_rgba(0,0,0,0.5)] border-l-8 border-pink-600"
-                  style={{ backgroundImage: "url('/assets/cover.png')" }}
+                  style={{ backgroundImage: "url('/assets/heart.png')" }}
                 >
                   <div className="absolute inset-0 bg-black/30 rounded-r-2xl flex items-end justify-center pb-8">
                     <p className="text-white text-xl font-bold drop-shadow-md animate-pulse">
