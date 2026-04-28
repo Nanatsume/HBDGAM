@@ -78,7 +78,8 @@ const Scene0Matrix = ({ onComplete }) => {
               animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               exit={{ scale: 0.5, opacity: 0, filter: "blur(10px)" }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="absolute text-pink-400 font-extrabold font-matrix text-center w-full text-[25vw] md:text-[15vw] leading-none tracking-widest drop-shadow-[0_0_30px_rgba(236,72,153,0.9)]"
+              className="absolute text-pink-400 font-extrabold font-matrix text-center w-full text-[25vw] md:text-[15vw] leading-none tracking-widest"
+              style={{ textShadow: '0 0 10px #f472b6, 0 0 30px #ec4899, 0 0 60px #db2777' }}
             >
               {words[wordIndex]}
             </motion.div>
