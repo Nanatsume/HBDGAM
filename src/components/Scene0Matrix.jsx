@@ -17,7 +17,7 @@ const Scene0Matrix = ({ onComplete }) => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const chars = "HAPPY BIRTH DAY TO GAM 💖".split("");
+    const chars = [..."HAPPYBIRTHDAYTOGAM💖✨💕"];
     const fontSize = 20;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = [];
