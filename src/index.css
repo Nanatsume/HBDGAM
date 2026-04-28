@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 p-0 overflow-hidden bg-black text-white font-sans;
+  }
+}
+
+/* Character sprite settings */
+.sanrio-sprite {
+  background-image: url('/assets/IMG_7787.jpeg'); /* Placeholder until user uploads actual image */
+  background-size: 400% 300%;
+  display: inline-block;
+}
+
+/* Add some smooth transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 500ms, transform 500ms;
+}
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 500ms, transform 500ms;
+}
