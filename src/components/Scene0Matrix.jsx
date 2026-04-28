@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Scene0Matrix = ({ onComplete }) => {
   const canvasRef = useRef(null);
   
-  const words = ["HAPPY", "BIRTH", "DAY", "TO", "GAM", "💖"];
+  const words = ["3", "2", "1", "HAPPY", "BIRTH", "DAY", "TO", "GAM", "💖"];
   const [wordIndex, setWordIndex] = useState(0);
   const [showWord, setShowWord] = useState(true);
 
@@ -57,7 +57,7 @@ const Scene0Matrix = ({ onComplete }) => {
     if (wordIndex < words.length) {
       const timer = setTimeout(() => {
         setWordIndex(i => i + 1);
-      }, 1200); // ความเร็วในการเปลี่ยนทีละคำ (1.2 วินาที)
+      }, 1000); // ความเร็วในการเปลี่ยน (1 วินาทีต่อคำ)
       return () => clearTimeout(timer);
     } else {
       setShowWord(false);
