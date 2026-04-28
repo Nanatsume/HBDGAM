@@ -57,7 +57,7 @@ const Scene0Matrix = ({ onComplete }) => {
     if (wordIndex < words.length) {
       const timer = setTimeout(() => {
         setWordIndex(i => i + 1);
-      }, 1000); // ความเร็วในการเปลี่ยน (1 วินาทีต่อคำ)
+      }, 1200); // ความเร็วในการเปลี่ยน (1.2 วินาทีต่อคำ)
       return () => clearTimeout(timer);
     } else {
       setShowWord(false);
@@ -74,11 +74,11 @@ const Scene0Matrix = ({ onComplete }) => {
           {showWord && wordIndex < words.length && (
             <motion.div
               key={wordIndex}
-              initial={{ scale: 4, opacity: 0 }}
+              initial={{ scale: 1.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
-              transition={{ duration: 0.3, type: "spring", bounce: 0.5 }}
-              className="absolute text-pink-500 text-7xl md:text-9xl font-bold font-matrix text-center w-full"
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="absolute text-pink-500 font-bold font-matrix text-center w-full text-[20vw] md:text-[15vw] leading-none drop-shadow-xl"
             >
               {words[wordIndex]}
             </motion.div>
